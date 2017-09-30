@@ -1,0 +1,20 @@
+version: "2"
+services:
+  web:
+    build: .
+    command: npm start
+    volumes:
+      - .:/usr/app/
+      - /usr/app/node_modules
+    ports:
+      - "3000:3000"
+    depends_on:
+      - redis
+    environment:
+      - NODE_ENV=production
+      - apiKey=AIzaSyB4vAaHhSeSjidMguU81tnOejz8lPSVxOM
+      - redisHost=redis
+      - redisPort=6379
+  redis:
+    image: redis
+    
