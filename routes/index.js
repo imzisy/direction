@@ -5,7 +5,7 @@ const express = require('express'),
           
 
 router.post('/routes', function(req, res, next) {
-    let points = req.body.points;
+    let points = req.body;
     let token = handler.triggerJob(points);
     res.json({
         "token": token

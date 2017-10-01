@@ -24,6 +24,9 @@ function insert(token, data){
 function getResultByToken(token){
     let deferred = Q.defer();
     redisClient.get(token, function(err, reply) {
+        if(reply ==null){
+            deferred.resolve({ "error":"TOKEN DOESNOT EXIST"})
+        }
         deferred.resolve(JSON.parse(reply));
     });
     return deferred.promise;
