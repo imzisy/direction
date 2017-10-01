@@ -143,7 +143,7 @@ Response example:
 		["22.326442", "114.167811"],
 		["22.284419", "114.159510"]
 	],
-	"total_distance": 20000,
-	"total_time": 1800
+	"total_distance": 18143,
+	"total_time": 1778
 }
 ```
