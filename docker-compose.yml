@@ -12,7 +12,7 @@ services:
       - redis
     environment:
       - NODE_ENV=production
-      - googleapiKey=AIzaSyB4vAaHhSeSjidMguU81tnOejz8lPSVxOM
+      - googleApiKey=AIzaSyB4vAaHhSeSjidMguU81tnOejz8lPSVxOM
   redis:
     image: redis
     
