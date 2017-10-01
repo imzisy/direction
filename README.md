@@ -27,7 +27,7 @@ docker and docker-compose
 docker-compose up
 ```
 
-If you visit [here](http://127.0.0.1:3000) you should see "It is Working".
+If you visit [http://127.0.0.1:3000](http://127.0.0.1:3000) you should see "It is Working".
 
 
 
