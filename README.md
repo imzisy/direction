@@ -16,25 +16,14 @@ docker and docker-compose
 ### Installing docker
 
 For mac users : 
-
-```
 [docker-mac](https://www.docker.com/docker-mac)
 
-```
-
 For windows users
-
-```
-
 [docker-windows](https://www.docker.com/docker-windows)
-```
 
 For ubuntu users
-
-```
 [docker-ubuntu](https://www.docker.com/docker-ubuntu)
 
-```
 
 ## Running the tests
 
