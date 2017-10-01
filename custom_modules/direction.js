@@ -1,9 +1,7 @@
 'use strict';
 
 const Q = require('q'),
-    googleMapsClient = require('@google/maps').createClient({
-    key: process.env.GOOGLE_MAPS_API_KEY
-});
+    googleMapsClient = require('@google/maps').createClient();
 
 /**
  * Function for get direction from google api 
@@ -18,12 +16,29 @@ function getDirection(points) {
         origin: points[0],
         destination: points[pointsLength - 1],
         waypoints: points,
-        alternatives: true,
+        alternatives: true
     }, function(err, response) {
         if (err) {
             deferred.reject(err.json);
         } else {
-                deferred.resolve(response);
+                if(response.json.status == 'OK'){ 
+                    deferred.resolve(response.json);
+                }
+                else if(response.json.status =='OVER_QUERY_LIMIT'){
+                    deferred.reject('OVER_QUERY_LIMIT');
+                }
+                else if(response.json.status =='REQUEST_DENIED'){
+                    deferred.reject('REQUEST_DENIED');
+                }
+                else  if(response.json.status =='ZERO_RESULTS'){
+                    deferred.reject('ZERO_RESULTS');
+                }
+                else if(response.json.status == 'INVALID_REQUEST'){    
+                    deferred.reject('ZERO_RESULTS');
+                }
+                else if(response.json.status == 'UNKNOWN_ERROR'){ 
+                    deferred.reject('UNKNOWN_ERROR');
+                }
         }
     });
     return deferred.promise;
@@ -41,7 +56,7 @@ function calculate(points){
     let totalDuration = 0;
     getDirection(points)
     .then(response => { 
-        let route = response.json.routes[0];
+        let route = response.routes[0];
         for (var i = 0; i < route.legs.length; i++) {
             totalDistance += route.legs[i].distance.value;
             totalDuration += route.legs[i].duration.value;
@@ -55,7 +70,7 @@ function calculate(points){
           deferred.resolve(result);       
     })
     .catch(error => { 
-        deferred.reject({status: "fail",error: 'ERROR_DESCRIPTION'});
+        deferred.reject({status: "fail",error: 'ERROR_DESCRIPTION',googleError:error});
      })
      
      return deferred.promise;

@@ -4,7 +4,7 @@ const express = require('express'),
     store = require('../custom_modules/store.js')()
           
 
-router.post('/routes', function(req, res, next) {
+router.post('/route', function(req, res, next) {
     let points = req.body;
     let token = handler.triggerJob(points);
     res.json({
@@ -12,7 +12,7 @@ router.post('/routes', function(req, res, next) {
     })
 });
 
-router.get('/routes/:token', function(req, res, next) {
+router.get('/route/:token', function(req, res, next) {
     store.getResultByToken(req.params.token)
     .then(reply => {
         res.json(reply)

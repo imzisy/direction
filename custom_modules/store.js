@@ -12,6 +12,7 @@ const redis = require("redis"),
  * @param data
  */    
 function insert(token, data){
+    console.log(data);
     redisClient.set(token, JSON.stringify(data)); 
 }
 
