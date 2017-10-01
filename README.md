@@ -30,13 +30,6 @@ For ubuntu users
 docker-compose up
 ```
 
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* 
-
 ## Built With
 * Express Nodejs
 * Redis 
