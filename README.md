@@ -1,6 +1,5 @@
 # Emad Solution
 
-One Paragraph of project description goes here
 Build an API to calculate shortest driving path and estimated driving time to visit all specified locations, starting from the first in the list.
 
 ## Getting Started
