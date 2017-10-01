@@ -2,7 +2,7 @@
 
 const Q = require('q'),
     googleMapsClient = require('@google/maps').createClient({
-    key: process.env.apiKey
+    key: process.env.googleApiKey
 });
 
 /**
