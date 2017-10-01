@@ -132,7 +132,7 @@ or
 ---
 
 URL example:  
- - `/route/9d3503e0-7236-4e47-a62f-8b01b5646c16`
+ - `/route/r1YiiTpoW`
 
 Response example:  
 ```json
