@@ -12,7 +12,7 @@ services:
       - redis
     environment:
       - NODE_ENV=production
-      - apiKey=AIzaSyB4vAaHhSeSjidMguU81tnOejz8lPSVxOM
+      - googleApiKey=AIzaSyB4vAaHhSeSjidMguU81tnOejz8lPSVxOM
       - redisHost=redis
       - redisPort=6379
   redis:

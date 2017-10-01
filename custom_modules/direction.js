@@ -68,6 +68,6 @@ function calculate(points){
  */
 exports = module.exports = function() {
      return {
-        calculateDistance : calculate
+        calculate : calculate
      }
  };

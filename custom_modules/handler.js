@@ -32,7 +32,7 @@ function triggerJob(points){
 }
 
 eventEmitter.on('job', function(job) {
-    let promois = direction.calculateDistance(job.points)
+    let promois = direction.calculate(job.points)
     .then(result => { 
       store.insert(job.token,result);
     })
