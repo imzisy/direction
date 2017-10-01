@@ -64,13 +64,6 @@ Response body:
 ```json
 { "token": "TOKEN" }
 ```
-
-or
-
-```json
-{ "error": "ERROR_DESCRIPTION" }
-```
-
 ---
 
 Input body example:
@@ -125,7 +118,8 @@ or
 ```json
 {
 	"status": "failure",
-	"error": "ERROR_DESCRIPTION"
+	"error": "ERROR_DESCRIPTION",
+	"googleError": "ZERO_RESULTS"
 }
 ```
 
