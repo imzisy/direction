@@ -2,9 +2,9 @@
 
 const Q = require('q'),
     googleMapsClient = require('@google/maps').createClient({
-    key: process.env.googleApiKey
+    key: process.env.GOOGLE_MAPS_API_KEY
 });
-console.log(process.env.googleApiKey);
+
 /**
  * Function for get direction from google api 
  *
