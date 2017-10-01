@@ -35,7 +35,7 @@ If you visit [http://127.0.0.1:3000](http://127.0.0.1:3000) you should see "It i
 * Express Nodejs
 * Redis 
 
-Implement the following HTTP endpoints:
+## Api Documntation :
 
 - [POST `/route`: Submit start point and drop-off locations](#submit-start-point-and-drop-off-locations)
 - [GET `/route/<TOKEN>`: Get shortest driving route](#get-shortest-driving-route)
@@ -86,7 +86,7 @@ Input body example:
 Response example:
 
 ```json
-{ "token": "9d3503e0-7236-4e47-a62f-8b01b5646c16" }
+{ "token": "r1YiiTpoW" }
 ```
 
 ### Get shortest driving route
