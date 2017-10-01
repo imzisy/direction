@@ -2,7 +2,7 @@
 
 const redis = require("redis"),
     Q = require('q'),
-    redisClient = redis.createClient(process.env.redisPort,process.env.redisHost);
+    redisClient = redis.createClient(6379,'redis');
 
  
 /**
