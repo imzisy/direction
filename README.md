@@ -35,7 +35,7 @@ If you visit [http://127.0.0.1:3000](http://127.0.0.1:3000) you should see "It i
 * Express Nodejs
 * Redis 
 
-## Api Documntation :
+## API Documntation :
 
 - [POST `/route`: Submit start point and drop-off locations](#submit-start-point-and-drop-off-locations)
 - [GET `/route/<TOKEN>`: Get shortest driving route](#get-shortest-driving-route)
