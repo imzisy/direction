@@ -32,17 +32,16 @@ function triggerJob(points){
 }
 
 eventEmitter.on('job', function(job) {
-    let promois = direction.calculate(job.points)
-    .then(result => { 
-      store.insert(job.token,result);
+    store.set(job.token,{status: "in progress"})
+    .then(reply =>{
+        direction.calculate(job.points)
+        .then(result => { 
+          store.set(job.token,result);
+        })
+        .catch(error => { 
+            store.set(job.token,error);
+         })   
     })
-    .catch(error => { 
-        store.insert(job.token,error);
-     })
-     .isPending()
-     if(promois){
-        store.insert(job.token,{status: "in progress"});
-     }      
 })
 
 

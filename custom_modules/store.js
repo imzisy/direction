@@ -6,14 +6,23 @@ const redis = require("redis"),
 
  
 /**
- * Function for insert into db 
+ * Function for set into db 
  *
  * @param token
  * @param data
  */    
-function insert(token, data){
-    console.log(data);
-    redisClient.set(token, JSON.stringify(data)); 
+function set(token, data){
+    let deferred = Q.defer();
+    redisClient.set(token, JSON.stringify(data), function (err, reply) {
+        if(err){
+            console.log(err);
+            deferred.reject(err);
+        }
+        else {
+            deferred.resolve(reply);
+        }
+    }); 
+    return deferred.promise;
 }
 
 /**
@@ -41,7 +50,7 @@ function getResultByToken(token){
  */
 exports = module.exports = function() {
     return {
-        insert : insert,
+        set : set,
         getResultByToken :getResultByToken
     }
 };
