@@ -23,8 +23,7 @@ function getDirection(points) {
         } else {
                 if(response.json.status == 'OK'){ 
                     deferred.resolve(response.json);
-                }
-                else {
+                } else {
                     deferred.reject(response.json.status);
                 }
         }
