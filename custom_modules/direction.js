@@ -58,9 +58,8 @@ function calculate(points){
           deferred.resolve(result);       
     })
     .catch(error => { 
-        deferred.reject({status: "fail",error: 'ERROR_DESCRIPTION',googleError:error});
+        deferred.reject({status: "fail", error: 'ERROR_DESCRIPTION', googleError:error});
      })
-     
      return deferred.promise;
 }
 
