@@ -24,20 +24,8 @@ function getDirection(points) {
                 if(response.json.status == 'OK'){ 
                     deferred.resolve(response.json);
                 }
-                else if(response.json.status =='OVER_QUERY_LIMIT'){
-                    deferred.reject('OVER_QUERY_LIMIT');
-                }
-                else if(response.json.status =='REQUEST_DENIED'){
-                    deferred.reject('REQUEST_DENIED');
-                }
-                else  if(response.json.status =='ZERO_RESULTS'){
-                    deferred.reject('ZERO_RESULTS');
-                }
-                else if(response.json.status == 'INVALID_REQUEST'){    
-                    deferred.reject('ZERO_RESULTS');
-                }
-                else if(response.json.status == 'UNKNOWN_ERROR'){ 
-                    deferred.reject('UNKNOWN_ERROR');
+                else {
+                    deferred.reject(response.json.status);
                 }
         }
     });
