@@ -4,6 +4,22 @@ const Q = require("q");
 const googleMapsClient = require("@google/maps").createClient();
 
 /**
+ * Function for sort an array of points by array of 
+ * indexes of original array in sorted order
+ * 
+ * @param points
+ * @param waypointOrder
+ * @return list of sorted Points
+ */
+function sortPointsByWaypointOrder(points,waypointOrder){
+    let sortedPoints = [];
+    for (let i = 0; i < waypointOrder.length; i++) {
+        sortedPoints.push(points[waypointOrder[i]]);   
+    }
+    return sortedPoints;
+}
+
+/**
  * Function for get direction from google api
 *
  * @param points
@@ -13,11 +29,10 @@ function getDirection(points) {
     let deferred = Q.defer();
     let pointsLength = points.length;
     googleMapsClient.directions({
-        optimizeWaypoints: true,
         origin: points[0],
         destination: points[pointsLength - 1],
         waypoints: points,
-        alternatives: true
+        optimize : true,
     }, function(err, response) {
         if (err) {
             return deferred.reject(err.json);
@@ -43,13 +58,14 @@ function calculate(points){
     getDirection(points)
     .then(response => {
         let route = response.routes[0];
-        for (var i = 0; i < route.legs.length; i++) {
+        for (let i = 0; i < route.legs.length; i++) {
             totalDistance += route.legs[i].distance.value;
             totalDuration += route.legs[i].duration.value;
         }
+        let sortedPoints = sortPointsByWaypointOrder(points,route.waypoint_order)
         let result = {
             status: "success",
-            path : route.waypoint_order,
+            path : sortedPoints,
             total_distance : totalDistance,
             total_time : totalDuration,
         };
